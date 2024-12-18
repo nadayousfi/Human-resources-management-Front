@@ -1,0 +1,118 @@
+<!-- <h2>مطالب الإجازات</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>الاسم و اللقب</th>
+      <th>المصلحة</th>
+      <th>من</th>
+      <th>إلـــى</th>
+      <th>المدة المطلوبة</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let leave of leaveRequests">
+      <td>{{ leave.user.name }}</td>
+      <td>{{ leave.user.email }}</td>
+
+      <td>{{ leave.startDate | date }}</td>
+      <td>{{ leave.endDate | date }}</td>
+      <td>{{ calculateDays(leave.startDate, leave.endDate) }} jours</td>
+      <td>
+        <button (click)="approveRequests(leave)">الموافقة على الطلب</button>
+        <button (click)="supprimerLeave(leave)">رفض الطلب</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2>الاسترخاصات</h2>
+<table>
+  <thead>
+    <tr>
+      <th>الاسم و اللقب</th>
+      <th>المصلحة</th>
+      <th>لمــــــــدة</th>
+      <th>بدايـــة من الساعـــة:</th>
+      <th>إلـــى الساعــة :</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let leaveHour of leaveHourRequests">
+      <td>{{ leaveHour.user.name }}</td>
+      <td>{{ leaveHour.user.email }}</td>
+      <td>{{ leaveHour.hoursRequested }}</td>
+      <td>{{ leaveHour.startHour }}</td>
+      <td>{{ leaveHour.endHour }}</td>
+      <td>
+        <button (click)="approveLeaveHourRequest(leaveHour)">
+          الموافقة على الطلب
+        </button>
+        <button (click)="rejectLeaveHourRequest(leaveHour)">رفض الطلب</button>
+      </td>
+    </tr>
+  </tbody>
+</table> -->
+<div class="statistics">
+  <h2>إحصائيات الإجازات</h2>
+  <p><strong>إجمالي الموظفين :</strong> {{ totalEmployees }}</p>
+  <p><strong>الموظفون حاليًا في إجازة: :</strong> {{ employeesOnLeave }}</p>
+  <p><strong>نسبة الموظفين في إجازة:</strong> {{ percentageOnLeave }}%</p>
+  <p><strong> إجمالي الموظفين المرض:</strong> {{ emsk }}</p>
+</div>
+
+<div>
+  <label for="month">الشهر:</label>
+  <select id="month" [(ngModel)]="selectedMonth" (change)="onMonthChange()">
+    <option
+      *ngFor="let month of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]"
+      [value]="month"
+    >
+      {{ month }}
+    </option>
+  </select>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>الاسم و اللقب</th>
+      <th>من</th>
+      <th>إلى</th>
+      <th>المدة المطلوبة</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let request of leaveRequests">
+      <td>{{ request.user.name }}</td>
+      <td>{{ request.user.cnr }}</td>
+
+      <td>{{ request.startDate | date : "yyyy-MM-dd" }}</td>
+      <td>{{ request.endDate | date : "yyyy-MM-dd" }}</td>
+      <td>{{ calculateDays(request.startDate, request.endDate) }}</td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th>الاسم و اللقب</th>
+      <th>من</th>
+      <th>إلى</th>
+      <th>المدة المطلوبة</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let maladi of maladies">
+      <td>{{ maladi.user.name }}</td>
+      <td>{{ maladi.user.cnr }}</td>
+
+      <td>{{ maladi.startDate | date : "yyyy-MM-dd" }}</td>
+      <td>{{ maladi.endDate | date : "yyyy-MM-dd" }}</td>
+      <td>{{ maladi.daysRequested }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-primary" (click)="imprimerTout()">Imprimer Tout</button>

@@ -1,0 +1,56 @@
+<br /><br />
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>الاسم و اللقب</th>
+      <th>المصلحة</th>
+      <th>العنوان</th>
+      <th>المعرف الوحيد</th>
+      <th>الرتبة</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usr of UserPagines">
+      <td>{{ usr.role }}</td>
+      <td>{{ usr.name }}</td>
+      <td>{{ usr.cnr }}</td>
+      <td>{{ usr.adresse }}</td>
+      <td>{{ usr.email }}</td>
+      <td>
+        <img
+          class="card-img-top img-responsive"
+          [src]="usr.imageStr"
+          style="height: 50px; width: 100px"
+        />
+      </td>
+
+      <td>
+        <button class="btn btn-primary" (click)="imprimerLigne(usr)">
+          Imprimer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- Pagination Controls -->
+<div class="pagination">
+  <button
+    class="btn btn-danger"
+    (click)="pagePrecente()"
+    [disabled]="page === 1"
+  >
+    Précédent
+  </button>
+  <span>Page{{ page }}/{{ nombreDePages() }}</span>
+  <button
+    class="btn btn-danger"
+    (click)="pageSuivante()"
+    [disabled]="page === nombreDePages()"
+  >
+    Suivant
+  </button>
+</div>
+<div class="total-produits">
+  <p>: {{ user.length }}</p>
+</div>

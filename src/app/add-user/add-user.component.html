@@ -1,0 +1,67 @@
+<div class="form-container">
+  <form (ngSubmit)="addUser()" #userForm="ngForm">
+    <label for="name">الاسم و اللقب</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      [(ngModel)]="newUser.name"
+      required
+    />
+
+    <label for="email">المصلحة</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      [(ngModel)]="newUser.email"
+      required
+    />
+
+    <label for="adresse">العنوان</label>
+    <input
+      type="text"
+      id="adresse"
+      name="adresse"
+      [(ngModel)]="newUser.adresse"
+      required
+    />
+
+    <label for="cnr">المعرف الوحيد</label>
+    <input type="text" id="cnr" name="cnr" [(ngModel)]="newUser.cnr" required />
+
+    <label for="role">الرتبة</label>
+    <input
+      type="text"
+      id="role"
+      name="role"
+      [(ngModel)]="newUser.role"
+      required
+    />
+    <!-- <label for="role">عدد الايام الاجازة</label>
+    <input
+      type="text"
+      id="role"
+      name="role"
+      [(ngModel)]="newUser.leaveBalance"
+      required
+    /> -->
+    <div class="col-sm-16 col-md-16 col-lg-16">
+      <label class="mb-2">الصورة :</label>
+      <input
+        type="file"
+        (change)="onImageUpload($event)"
+        name="logo"
+        class="form-control"
+      />
+    </div>
+    <div class="col-sm-16 col-md-16 col-lg-16">
+      <img
+        [src]="imagePath"
+        class="card-img-top img-fluid rounded-start"
+        style="width: 500px; height: 300px"
+      />
+    </div>
+    <button type="submit" (click)="addUser()">اضافة</button>
+  </form>
+</div>

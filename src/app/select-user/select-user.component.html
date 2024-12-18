@@ -1,0 +1,12 @@
+<div>
+  <label for="user-select">اختيار اسم العون :</label>
+  <select id="user-select" (change)="onUserSelected($event)">
+    <option *ngFor="let user of users" [value]="user.id">
+      {{ user.name }}
+    </option>
+  </select>
+</div>
+<app-leave-history
+  *ngIf="selectedUserId"
+  [userId]="selectedUserId"
+></app-leave-history>

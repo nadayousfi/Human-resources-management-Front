@@ -1,0 +1,99 @@
+<div *ngIf="leaveRequests.length > 0">
+  <h2>سجل الإجازات</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>الاسم و اللقب</th>
+        <th>من</th>
+        <th>إلى</th>
+        <th>المدة المطلوبة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of leaveRequests">
+        <td>{{ userName }}</td>
+        <td>{{ request.startDate | date }}</td>
+        <td>{{ request.endDate | date }}</td>
+        <td>{{ calculateDays(request.startDate, request.endDate) }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="summary">
+    <p><strong>إجمالي الأيام المأخوذة :</strong> {{ totalDaysTaken }} يوم</p>
+    <p><strong>الأيام المتبقية :</strong> {{ remainingDays }} يوم</p>
+  </div>
+</div>
+
+<div *ngIf="currentRequest">
+  <h3>قيد الانتظار</h3>
+  <p>
+    من {{ currentRequest.startDate | date }} إلى
+    {{ currentRequest.endDate | date }} - المدة المطلوبة :
+    {{ calculateDays(currentRequest.startDate, currentRequest.endDate) }} يوم
+  </p>
+</div>
+
+<div *ngIf="leaveRequests.length === 0 && !currentRequest">
+  <h3>لم يتم العثور على أي إجازة</h3>
+</div>
+<div *ngIf="leaveHourRequestsApproved.length > 0">
+  <h2>سجل الاسترخاصات</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>مـــــن</th>
+        <th>بدايـــة من الساعـــة</th>
+        <th>إلـــى الساعــة :</th>
+        <th>لمــــــــدة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of leaveHourRequestsApproved">
+        <td>{{ userName }}</td>
+        <td>{{ request.startHour }}</td>
+        <td>{{ request.endHour }}</td>
+        <td>{{ request.hoursRequested }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="maladies.length > 0">
+  <h2>سجل إجازات المرض</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>مـــــن</th>
+        <th>بدايـــة من الساعـــة</th>
+        <th>إلـــى الساعــة :</th>
+        <th>لمــــــــدة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let maladi of maladies">
+        <td>{{ userName }}</td>
+        <td>{{ maladi.startDate }}</td>
+        <td>{{ maladi.endDate }}</td>
+        <td>{{ maladi.daysRequested }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="leaveHourRequestsPending.length > 0">
+  <h3>سجل الاسترخاصات قيد الانتطار</h3>
+  <p *ngFor="let request of leaveHourRequestsPending">
+    مـــــن {{ request.startHour }} إلـــى {{ request.endHour }} - المدة :
+    {{ request.hoursRequested }} ساعــة
+  </p>
+</div>
+
+<div
+  *ngIf="
+    leaveRequests.length === 0 &&
+    leaveHourRequestsApproved.length === 0 &&
+    leaveHourRequestsPending.length === 0
+  "
+>
+  <h3>لم يتم العثور على أي إجازة</h3>
+</div>
+<br />

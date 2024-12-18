@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background: linear-gradient(
+    to right,
+    #f5f7fa,
+    #c3cfe2
+  ); /* Exemple de dégradé subtil */
+  color: #333; /* Couleur du texte pour un bon contraste */
+}
+body {
+  background-image: url("/assets/arr.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7); /* Ajuste l'opacité */
+  z-index: -1; /* Pour que le contenu reste visible par-dessus */
+}
+form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 50%; /* Ajuste selon tes besoins */
+  margin: 20px auto; /* Centrer le formulaire */
+}

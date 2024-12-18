@@ -1,0 +1,99 @@
+/* Style global */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Titre */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Conteneur principal */
+div {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th,
+table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table td {
+  color: #555;
+}
+
+table td:first-child {
+  font-weight: bold;
+}
+
+/* Résumé (total jours pris et restants) */
+.summary {
+  background-color: #f4f4f9;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+}
+
+.summary p {
+  font-size: 16px;
+  color: #555;
+}
+
+.summary p strong {
+  color: #333;
+}
+
+.summary p:first-child {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Demande en cours */
+h3 {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Message 'Aucun congé trouvé' */
+h3 {
+  color: #ff6347;
+  text-align: center;
+  font-size: 18px;
+}
